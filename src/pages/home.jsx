@@ -1,11 +1,20 @@
-import React, { Component } from "react"
+import React from "react"
+import { makeStyles } from "@material-ui/core/styles"
 
-class Home extends Component {
-    render() {
+
+const useStyles = makeStyles({
+    container: {
+      display: "flex",
+      width: "160px",
+      
+    }
+  })
+const Home = props => {
+    const classes = useStyles();
         return (
-            <h1> Hello </h1>
+            <h1> This Home Page </h1>
         );
     }
-}
+
 
 export default Home;

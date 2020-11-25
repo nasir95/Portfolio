@@ -1,12 +1,15 @@
 import './App.css';
 import SideBar from './component/SideBar';
 import Home from './pages/home';
+import About from './pages/about';
 import { makeStyles } from "@material-ui/core/styles"
-
+import {Route, Switch} from "react-router-dom"
 
 const useStyles = makeStyles({
   container: {
-    display: "flex"
+    display: "flex",
+    width: "160px",
+    
   }
 })
 
@@ -15,7 +18,10 @@ function App() {
   return (
    <div className={classes.container}>
    <SideBar />
-   <h1>Hello</h1>
+   <Switch>
+   <Route exact from="/" render={props => <Home {...props} />} />
+   <Route exact from="/about" render={props => <About {...props} />} />
+   </Switch>
    </div>
    )}
 
