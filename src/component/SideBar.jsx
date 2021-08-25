@@ -1,5 +1,5 @@
-import React from "react";
-import { Drawer, ListItem, ListItemIcon, ListItemText, List, Divider, Toolbar, Button } from "@material-ui/core"
+import React, { useState } from "react";
+import { Drawer, ListItem, ListItemIcon,  List, Divider,  } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import HomeIcon from '@material-ui/icons/Home';
 import MailIcon from '@material-ui/icons/Mail';
@@ -11,79 +11,88 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import { withRouter } from 'react-router-dom'
 
 const useStyles = makeStyles({
-  drawer: {
-    width: "160px",
-  },
   drawerPaper: {
-    backgroundColor: "#383838",
-   
-  },
-  fontColor: {
-    color:  "#ff1a1a"
+    display: "flex",
+    backgroundColor: "#121212",
+    justifyContent: "center",
+    alignItems: "center",
+    fontColor: "#f7f7f7"
   },
   listItems: {
-    marginBottom: "20px",
-    alignItems: "center",
-    justifyContent: "center"
+    marginBottom: "5px",
   },
   listContainer: {
-    marginTop: "200px"
+    alignItems: "center",
+    justifyContent: "center",
+    margin: "auto 0"
   },
   listSocial: {
-    marginBottom: "6px",
+    marginTop: "auto",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
-  socialContainer: {
-    marginTop: "90px"
+  image: {
+    alignItems: "center",
+    justifyContent: "center",
   }
 })
 
 const SideBar = props => {
+
+ 
+
+  // function changeColor(e) {
+  //   e.target.style.color = 'red';
+  // }
+
+  // function  changeColorBack(e) {
+  //   e.target.style.color = '#f7f7f7"';
+  // }
+
   const { history } = props
   const classes = useStyles();
   const itemsList = [
     {
       text:'Home',
-      icon: <HomeIcon style={{ color:  "#ff1a1a"}} />,
+      icon: <HomeIcon style={{ color:  "#f7f7f7", }} />,
       onClick: () => history.push('/')
     },
     {
       text: 'About me',
-      icon: <PersonIcon style={{ color:  "#ff1a1a"}} />,
+      icon: <PersonIcon style={{ color:  "#f7f7f7",}} />,
       onClick: () => history.push('/about')
     }, 
     {
       text:'Skills',
-      icon:<SettingsApplicationsIcon style={{ color:  "#ff1a1a"}} />,
+      icon:<SettingsApplicationsIcon style={{ color:  "#f7f7f7"}} />,
       onClick: () => history.push('/skills')
     },
     {
       text: 'Projects',
-      icon: <WorkIcon style={{ color:  "#ff1a1a"}} />,
+      icon: <WorkIcon style={{ color:  "#f7f7f7"}} />,
       onClick: () => history.push('/projects')
     },
     { text: 'Contact Me',
-      icon: <MailIcon style={{ color:  "#ff1a1a"}} />,
+      icon: <MailIcon style={{ color:  "#f7f7f7"}} />,
       onClick: () => history.push('/contact')
     },
   ];
   const iconsList = [
     {
       text:'LinkedIn',
-      icon: <LinkedInIcon style={{ color:  "#ff1a1a"}} />
+      icon: <LinkedInIcon style={{ color:  "#f7f7f7"}} />
     },
     {
       text: 'GitHub',
-      icon: <GitHubIcon style={{ color:  "#ff1a1a"}} />
+      icon: <GitHubIcon style={{ color:  "#f7f7f7"}} />
     }, 
   ];
   return (
-     <Drawer variant="permanent" className={classes.drawer} classes={{
+     <Drawer variant="permanent" classes={{
       paper: classes.drawerPaper,
-    }}>
-       <ListItem button>
-         <img src='./images/nnlogo.png' alt='logo' width="100"></img>
+    }}anchor="left">
+       <ListItem button className={classes.image}>
+         <img src='./images/nnlogo.png' alt='logo' width="75" height="50"></img>
        </ListItem>
       <Divider />
        <List className={classes.listContainer}>
@@ -91,16 +100,16 @@ const SideBar = props => {
             const { icon, onClick} = item;
             return(
             <ListItem button className={classes.listItems} onClick={onClick}>
-              {icon && <ListItemIcon>{icon}</ListItemIcon>}
+              {icon && <ListItemIcon id="List">{icon}</ListItemIcon>}
             </ListItem>
           )})}
         </List>
         <Divider />
-        <List className={classes.socialContainer}>
-          {iconsList.map((item, index) => {
+        <List className={classes.listSocial}>
+          {iconsList.map((item) => {
             const { icon } = item;
             return(
-            <ListItem button className={classes.listSocial}>
+            <ListItem button >
               {icon && <ListItemIcon>{icon}</ListItemIcon>}
             </ListItem>
           )})}
