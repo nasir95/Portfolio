@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Drawer, ListItem, ListItemIcon,  List, Divider,  } from "@material-ui/core"
+import React from "react";
+import { Drawer, ListItem, ListItemIcon,  List, Divider, Container} from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import HomeIcon from '@material-ui/icons/Home';
 import MailIcon from '@material-ui/icons/Mail';
@@ -9,14 +9,16 @@ import WorkIcon from '@material-ui/icons/Work';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import { withRouter } from 'react-router-dom'
+import newlogo from '../icons/newlogo.svg'
 
 const useStyles = makeStyles({
   drawerPaper: {
     display: "flex",
-    backgroundColor: "#121212",
+    backgroundColor: "#333333",
     justifyContent: "center",
     alignItems: "center",
-    fontColor: "#f7f7f7"
+    fontColor: "#f7f7f7",
+    width:"8.26%"
   },
   listItems: {
     marginBottom: "5px",
@@ -54,45 +56,46 @@ const SideBar = props => {
   const itemsList = [
     {
       text:'Home',
-      icon: <HomeIcon style={{ color:  "#f7f7f7", }} />,
+      icon: <HomeIcon style={{ color:  "#EB5757", }} />,
       onClick: () => history.push('/')
     },
     {
       text: 'About me',
-      icon: <PersonIcon style={{ color:  "#f7f7f7",}} />,
+      icon: <PersonIcon style={{ color:  "#EB5757",}} />,
       onClick: () => history.push('/about')
     }, 
     {
       text:'Skills',
-      icon:<SettingsApplicationsIcon style={{ color:  "#f7f7f7"}} />,
+      icon:<SettingsApplicationsIcon style={{ color:  "#EB5757"}} />,
       onClick: () => history.push('/skills')
     },
     {
       text: 'Projects',
-      icon: <WorkIcon style={{ color:  "#f7f7f7"}} />,
+      icon: <WorkIcon style={{ color:  "#EB5757"}} />,
       onClick: () => history.push('/projects')
     },
     { text: 'Contact Me',
-      icon: <MailIcon style={{ color:  "#f7f7f7"}} />,
+      icon: <MailIcon style={{ color:  "#EB5757"}} />,
       onClick: () => history.push('/contact')
     },
   ];
   const iconsList = [
     {
       text:'LinkedIn',
-      icon: <LinkedInIcon style={{ color:  "#f7f7f7"}} />
+      icon: <LinkedInIcon style={{ color:  "#EB5757"}} />
     },
     {
       text: 'GitHub',
-      icon: <GitHubIcon style={{ color:  "#f7f7f7"}} />
+      icon: <GitHubIcon style={{ color:  "#EB5757"}} />
     }, 
   ];
   return (
+    <Container>
      <Drawer variant="permanent" classes={{
       paper: classes.drawerPaper,
     }}anchor="left">
-       <ListItem button className={classes.image}>
-         <img src='./images/nnlogo.png' alt='logo' width="75" height="50"></img>
+       <ListItem button className={classes.image} style={{ backgroundColor: '#EB5757' }}>
+         <img src={newlogo} alt='logo'></img>
        </ListItem>
       <Divider />
        <List className={classes.listContainer}>
@@ -115,6 +118,7 @@ const SideBar = props => {
           )})}
         </List>
      </Drawer>
+     </Container>
   );
 };
 
