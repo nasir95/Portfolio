@@ -12,8 +12,8 @@ import { disableBodyScroll } from 'body-scroll-lock';
 const useStyles = theme => ({
   container: {
     display: "flex",
-    backgroundColor: "#1f1f1f",
-    height: "790px",
+    backgroundColor: "#333333",
+    height:"100vh"
   },
 })
 
@@ -28,12 +28,16 @@ class App extends Component {
   render(){
     const {classes} = this.props;
   return (
-   <Grid  container item xs={12} className={classes.container} id="grid" >
-   <SideBar />
-   <Switch>
-   <Route exact from="/" render={props => <Home {...props} />} />
-   <Route exact from="/about" render={props => <About {...props} />} />
-   </Switch>
+   <Grid  container id="grid" >
+     <Grid item xs={1}>
+        <SideBar />
+      </Grid>
+     <Grid item xs={11} className={classes.container}>
+          <Switch>
+            <Route exact from="/" render={props => <Home {...props} />} />
+            <Route exact from="/about" render={props => <About {...props} />} />
+          </Switch>
+      </Grid>
    </Grid>
    )}
   }
