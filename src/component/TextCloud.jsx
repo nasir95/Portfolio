@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import TagCloud from 'TagCloud';
+
+// Technologies I know
 const technologies = [
   'HTML',
   'CSS',

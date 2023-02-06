@@ -37,6 +37,7 @@ const useStyles = makeStyles({
   },
 });
 
+// Icons and buttons
 const SideBar = (props) => {
   // function changeColor(e) {
   //   e.target.style.color = 'red';
@@ -85,6 +86,7 @@ const SideBar = (props) => {
       icon: <GitHubIcon style={{ color: "#EB5757" }} />,
     },
   ];
+  
   return (
     <Grid container>
       <ListItem button className={classes.image}>
