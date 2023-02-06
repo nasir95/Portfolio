@@ -1,8 +1,8 @@
 import React, {Component} from "react"
-import { makeStyles } from "@material-ui/core/styles"
 import Card from '@material-ui/core/Card';
-import { CardContent, Grid } from "@material-ui/core";
+import { Box, CardContent, Grid, Paper } from "@material-ui/core";
 import newlogo from '../icons/newlogo.svg'
+
 
 //Array
 const textArray = ["full stack software engineer", "refugee", "gamer", "sports fan"];
@@ -14,14 +14,13 @@ const textArray = ["full stack software engineer", "refugee", "gamer", "sports f
     };
 
     const cardContainer = {
-      display:"flex",
+      direction:"column",
       color: "#1f1f1f",
       backgroundColor: "#EB5757",
-      margin: "auto",
-      width: "50%",
-      height: "300px",
       justifyContent: "center",
-      textAlign: "center"      
+      textAlign: "center",  
+      minHeight: "100vh",
+          
     }; 
 
     const imgContainer= {
@@ -57,22 +56,33 @@ class Home extends Component {
   render (){
     let textThatChanges = textArray[this.state.textIdx % textArray.length];
         return (
+          // <Grid container spacing={2}>
+          //   <Box xs={6} lg={6}sx={{
+          //     width: 300,
+          //     height: 300,
+          //     backgroundColor: 'primary.dark',
+          //     '&:hover': {
+          //       backgroundColor: 'primary.main',
+          //       opacity: [0.9, 0.8, 0.7],
+          //     }
+          //   }}>
+          //    <Card style={cardContainer}>
+          //      <CardContent style={text}>
+          //        <span>Hello world, my name is Nasir Nooruddin and <br />
+          //        I am a {textThatChanges}.</span> 
+          //       </CardContent> 
+          //     </Card>  
+          //   </Box>
+          //   <Box item xs={6} lg={6} style={container}>
+          //     <Card> 
+          //      <CardContent style={imgContainer}> 
+          //        <img src={newlogo} alt='logo' ></img>
+          //      </CardContent> 
+          //     </Card>
+          //   </Box>
+          // </Grid>
           <Grid container>
-            <Grid item xs={6} style={container}>
-              <Card style={cardContainer}> 
-               <CardContent style={text}>
-                 <span>Hello world, my name is Nasir Nooruddin and <br />
-                 I am a {textThatChanges}.</span> 
-                </CardContent> 
-              </Card>
-            </Grid>
-            <Grid item xs={6} style={container}>
-              <Card style={cardContainer}> 
-               <CardContent style={imgContainer}> 
-                 <img src={newlogo} alt='logo' ></img>
-               </CardContent> 
-              </Card>
-            </Grid>
+            
           </Grid>
         );
     }

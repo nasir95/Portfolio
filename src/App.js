@@ -7,6 +7,7 @@ import { withStyles } from "@material-ui/core/styles"
 import {Route, Switch} from "react-router-dom"
 import { Grid } from "@material-ui/core"
 import { disableBodyScroll } from 'body-scroll-lock';
+import Skills from "./pages/skills";
 
 
 const useStyles = theme => ({
@@ -28,14 +29,15 @@ class App extends Component {
   render(){
     const {classes} = this.props;
   return (
-   <Grid  container id="grid" >
-     <Grid item xs={1}>
+   <Grid  container id="grid" className={classes.container} >
+     <Grid item xs={3} lg={1}>
         <SideBar />
       </Grid>
-     <Grid item xs={11} className={classes.container}>
+     <Grid item xs={9} lg={11} className={classes.container}>
           <Switch>
             <Route exact from="/" render={props => <Home {...props} />} />
             <Route exact from="/about" render={props => <About {...props} />} />
+            <Route exact from="/skills" render={props => <Skills {...props} />} />
           </Switch>
       </Grid>
    </Grid>
